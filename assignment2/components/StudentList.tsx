@@ -10,11 +10,12 @@ a card with student infomation and the ability to interact with the cards.
 */
 type StudentProps = {
     studentList: Student[];
+    emptyMessage: string;
     onRemove: (id: number) => void;
 }
 
 //Manages student card
-const StudentList = ({studentList, onRemove}: StudentProps) => {
+const StudentList = ({studentList, emptyMessage, onRemove}: StudentProps) => {
     //var to hold true or false if studentList is empty
     const isEmpty = studentList.length === 0;
 
@@ -25,7 +26,7 @@ const StudentList = ({studentList, onRemove}: StudentProps) => {
 
         {/*if empty is true, will print a message stating that there are no students */}
         {isEmpty &&
-            <p className ="text-red-500 col-span-full text-center">There are no students to view</p>
+            <p className ="text-slate-600 col-span-full text-center">{emptyMessage}</p>
         }
 
         {/*if empty is false, it will map through the studentList and make a student card for each student */}

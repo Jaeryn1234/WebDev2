@@ -8,7 +8,7 @@ based on the # and id. Reused throughout the whole webpage at the very top.
 const navData = [
     {hashtag: "#overview", text: "Overview"},
     {hashtag: "#students", text: "Students"},
-    {hashtag: "#addStudents", text: "Add Students"},
+    {hashtag: "#addStudent", text: "Add Students"},
 ];
 
 //map: https://www.geeksforgeeks.org/reactjs/how-to-use-map-to-create-lists-in-reactjs/

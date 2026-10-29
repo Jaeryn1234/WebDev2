@@ -10,6 +10,7 @@ type StatsPanel = {
     studentSize: number;
     honourRoll: number; //80 or more
     grade12Size: number;
+    onClearAll: () => void;
 }
 
 //Panel props for Panel component
@@ -19,7 +20,7 @@ type Panel = {
 }
 
 //Displays the statistics
-const StatsPanel = ({studentSize, honourRoll, grade12Size}: StatsPanel) => {
+const StatsPanel = ({studentSize, honourRoll, grade12Size, onClearAll}: StatsPanel) => {
 return(
     <section id="overview">
         <h1 className="font-semibold text-lg mb-4 text-center text-[#334155]">Overview</h1>
@@ -27,6 +28,16 @@ return(
             <Panel text="Total Students" number={studentSize}/>
             <Panel text="Honour Roll" number={honourRoll}/>
             <Panel text="Grade 12 Count" number = {grade12Size}/>
+        </div>
+        <div className="mt-4 flex justify-center">
+            <button
+                type="button"
+                onClick={onClearAll}
+                disabled={studentSize === 0}
+                className="rounded-lg bg-red-600 px-4 py-2 font-semibold text-white transition hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+                Clear All
+            </button>
         </div>
     </section>
 )
