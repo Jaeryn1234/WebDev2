@@ -17,7 +17,7 @@ const Navbar = () => {
         <header className="bg-[#3D7FAF] border-b border-slate-200">
             <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
                 <div className="flex">
-                    <h1 className="text-lg font-bold text-white">Lester B. Pearson High School</h1>
+                    <h1 className="text-lg font-bold text-white">New Generation High School</h1>
                 </div>
                 <nav className="flex gap-7">
                  { 
