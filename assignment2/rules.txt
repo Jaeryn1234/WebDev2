@@ -1,0 +1,11 @@
+/*
+- Components are arrow functions in .tsx files. Every component that takes props describes them with an interface.
+- Put "use client" only in files that use state or events. Navbar, Footer, StatsPanel and StudentList should not need it.
+- Data down, events up: only StudentPortal changes the list. Children ask for a change through a callback prop, such as onRemove.
+- Never change the array in state directly. Every add or remove makes a new array.
+- Every new student gets an id that no other student has.
+- The three numbers and the search results are worked out from the list on every render. They are not state of their own. MEANING NO 3 STATES, THEY HAVE 1
+- Every input is controlled: its value comes from state and its onChange updates that state.
+- Style with Tailwind only. The cards sit in a grid: one column on a phone, more on wider screens, with no sideways scrolling at phone width.
+- Every file starts with a comment block: the file name, who wrote it, the date, and 4–5 sentences on what it does, its inputs (props), processing and output. Comments also mark each major section of code.
+ */
