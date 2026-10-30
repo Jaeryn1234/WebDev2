@@ -47,7 +47,7 @@ const StudentPortal = () => {
         <>
             <StatsPanel
                 studentSize={students.length}
-                honourRoll={students.filter((currentStudent) => currentStudent.average > 80).length}
+                honourRoll={students.filter((currentStudent) => currentStudent.average >= 80).length}
                 grade12Size={students.filter((currentStudent) => currentStudent.grade === 12).length}
                 onClearAll={handleClearAll}
             />

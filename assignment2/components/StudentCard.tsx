@@ -41,7 +41,7 @@ const StudentCard = ({fullName, grade, average, onRemove}: StudentCardProps) => 
                         <p>Average</p>
                         <p>{average}</p>
                     </div>
-                    {average > 80 && (
+                    {average >= 80 && (
                         <div className="bg-[#9bda9b] rounded p-2 text-center">Honour Roll</div>
                     )}
                     </>
