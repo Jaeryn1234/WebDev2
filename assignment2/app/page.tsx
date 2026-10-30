@@ -2,7 +2,7 @@ import StudentPortal from "@/components/StudentPortal";
 const Home = () => {
 
     return (
-        <main className="max-w-5xl mx-auto px-6 py-5">
+        <main className="mx-auto max-w-5xl px-4 py-5 sm:px-6">
             <StudentPortal/>
         </main>
     );

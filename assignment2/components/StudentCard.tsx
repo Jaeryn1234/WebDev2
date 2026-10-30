@@ -42,7 +42,9 @@ const StudentCard = ({fullName, grade, average, onRemove}: StudentCard) => {
                         <p>Average</p>
                         <p>{average}</p>
                     </div>
-                    <div className="bg-[#9bda9b] rounded p-2 text-center">Honour Roll</div>
+                    {average >= 80 && (
+                        <div className="bg-[#9bda9b] rounded p-2 text-center">Honour Roll</div>
+                    )}
                     </>
                 )}
                 </div>

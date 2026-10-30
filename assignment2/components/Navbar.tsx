@@ -15,17 +15,22 @@ const navData = [
 const Navbar = () => {
     return (
         <header className="bg-[#3D7FAF] border-b border-slate-200">
-            <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-                <div className="flex">
-                    <h1 className="text-lg font-bold text-white">New Generation High School</h1>
+            <div className="max-w-5xl mx-auto px-4 py-3 sm:px-6 sm:py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex justify-center sm:justify-start">
+                    <h1 className="text-center text-base font-bold text-white sm:text-lg">
+                        New Generation High School
+                    </h1>
                 </div>
-                <nav className="flex gap-7">
-                 { 
-                    navData.map((nav) =>(
-                        <div key={nav.hashtag} className="hover:bg-[#326D99] text-white transition flex justify-center items-center w-30 h-18 p-3">
-                            <a href={nav.hashtag}>{nav.text}</a>
+                <nav className="grid w-full grid-cols-3 gap-1 sm:flex sm:w-auto sm:gap-2">
+                    {
+                        navData.map((nav) => (
+                        <div
+                            key={nav.hashtag}
+                            className="flex min-w-0 items-center justify-center rounded px-1 py-3 text-center text-xs text-white transition hover:bg-[#326D99] sm:h-18 sm:w-30 sm:p-3 sm:text-sm"
+                        >
+                            <a className="whitespace-nowrap" href={nav.hashtag}>{nav.text}</a>
                         </div>
-                    ))
+                        ))
                     }
                 </nav>
             </div>

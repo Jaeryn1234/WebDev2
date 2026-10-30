@@ -1,14 +1,14 @@
 /*
 Jaeryn Franco - StatsPanel.tsx - Oct 28, 2026
 Stats Panel creates the stats UI of 3 things: how many students there are, how many are on the honour roll (with an average
-of 80 or more), and how many are in grade 12 (the status will react when the list is changed). Its inputs are student size, honour roll, and grade 12 size, props. 
+above 80), and how many are in grade 12 (the status will react when the list is changed). Its inputs are student size, honour roll, and grade 12 size, props.
 It will process these inputs by passing them to the Panel component, and the output is the stats displayed on screen.
 */
 
 //StatsPanel Props for StatsPanel component
 type StatsPanel = {
     studentSize: number;
-    honourRoll: number; //80 or more
+    honourRoll: number; //avarage 80 or more
     grade12Size: number;
     onClearAll: () => void;
 }
@@ -24,7 +24,7 @@ const StatsPanel = ({studentSize, honourRoll, grade12Size, onClearAll}: StatsPan
 return(
     <section id="overview">
         <h1 className="font-semibold text-lg mb-4 text-center text-[#334155]">Overview</h1>
-        <div className="flex flex-wrap gap-3 justify-center">
+        <div className="grid grid-cols-1 justify-items-center gap-3 sm:grid-cols-3">
             <Panel text="Total Students" number={studentSize}/>
             <Panel text="Honour Roll" number={honourRoll}/>
             <Panel text="Grade 12 Count" number = {grade12Size}/>
@@ -47,9 +47,9 @@ export default StatsPanel;
 //Panel component made to reduce redundancy. Multiple stats can be made without repetition.
 const Panel = ({text, number}: Panel) => {
     return (
-        <div className="flex flex-col justify-start text-center bg-white rounded-2xl shadow-md w-50 h-28 p-6">
-            <p>{text}</p>
-            <p className = "font-bold p-3 mt-2 bg-[#E6F2FA] rounded-2xl text-[#16A34A]">{number}</p>
+        <div className="flex w-full max-w-50 min-w-0 flex-col justify-start rounded-2xl bg-white p-3 text-center shadow-md sm:h-28 sm:p-6">
+            <p className="text-xs sm:text-base">{text}</p>
+            <p className="mt-2 rounded-2xl bg-[#E6F2FA] p-2 font-bold text-[#16A34A] sm:p-3">{number}</p>
         </div>
     );
 }
