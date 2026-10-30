@@ -20,7 +20,7 @@ const StatsPanel = ({studentSize, honourRoll, grade12Size, onClearAll}: StatsPan
         <div className="grid grid-cols-1 justify-items-center gap-3 sm:grid-cols-3">
             <StatsCard text="Total Students" number={studentSize} />
             <StatsCard text="Honour Roll" number={honourRoll} />
-            <StatsCard text="Grade 12 Count" number={grade12Size} />
+            <StatsCard text="Graduating" number={grade12Size} />
         </div>
         <div className="mt-4 flex justify-center">
             <button

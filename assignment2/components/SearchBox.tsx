@@ -21,6 +21,8 @@ const SearchBox = ({ searchTerm, onSearchChange }: SearchBoxProps) => {
                 Search students
             </label>
             <div className="flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 shadow-sm focus-within:border-[#3D7FAF] focus-within:ring-2 focus-within:ring-[#3D7FAF]/20">
+                
+                {/*Making a search bar icon, help from ai*/}
                 <svg
                     aria-hidden="true"
                     viewBox="0 0 24 24"
