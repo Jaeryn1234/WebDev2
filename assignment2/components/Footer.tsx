@@ -1,7 +1,9 @@
 /*
-Jaeryn Franco - Footer.tsx - Oct 27, 2026
-This file makes a footer with info about New Generation high school. It informs users about the school name, address, phone number, and email.
-The footer is an earthy blue color. Reused throughout the whole webpage at the very bottom.
+Jaeryn Franco - Footer.tsx - Oct 29, 2026
+Footer uses the school's contact details written into its static content.
+It groups the name, address, phone number, and email into a centered layout.
+Tailwind classes keep the footer styling consistent with the site's navigation.
+It renders the shared footer used by the root layout on every page.
 */
 
 const Footer = () => {

@@ -1,14 +1,15 @@
+/*
+AddStudent.tsx - Oct 29, 2026 - Bao Nguyen
+AddStudent receives an onAdd callback and keeps every form field in controlled local state.
+It validates both names, the grade range, and the average range before creating a student.
+When the form is valid, it passes the student data to StudentPortal without assigning an ID.
+After a successful submission, it clears the inputs and any previous validation message.
+It renders the add-student form and reports invalid input to the user.
+*/
 "use client";
 
 import { useState } from "react";
 import type { Student } from "@/types/student";
-
-/*
-AddStudent.tsx - Oct 29, 2026 - Bao Nguyen
-AddStudent renders a controlled form for creating a student. It receives an onAdd callback and sends the entered name, grade, and average to StudentPortal.
-The form validates required names and keeps grade and average within the supported ranges.
-After a valid submission, it clears the form and leaves student-list ownership with the parent.
-*/
 
 // Component props and form value types.
 interface AddStudentProps {

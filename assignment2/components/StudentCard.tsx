@@ -2,15 +2,14 @@
 import {useState} from 'react';
 
 /*
-Jaeryn Franco - StudentCard.tsx - Oct 28, 2026
-Student Card creates the UI for displaying student information (full name, grade) and will include 2 buttons (show details/hide details and remove.
-Initially, only full name and grade will show, but when show details is pressed, it reveals the students average and honour roll badge (then hide 
-details becomes visible). Student Card takes in props fullName, grade, average, and onRemove which will be processed by displaying student details,
-switching between show and hide button, and removing a student. The output is a card with student infomation and the ability to interact with the cards.
+Jaeryn Franco - StudentCard.tsx - Oct 29, 2026
+StudentCard receives one student's name, grade, average, and a remove callback through its props.
+It keeps its detail visibility state locally so each card can be opened independently.
+The details show the average and an Honour Roll badge only when the average is above 80.
+The card renders the student summary and controls for toggling details or removing the student.
 */
 
-//StudentCard prop for StudentCard
-type StudentCard = {
+interface StudentCardProps {
     fullName: string;
     grade: number;
     average: number,
@@ -18,13 +17,13 @@ type StudentCard = {
 }
   
 //Displays one student
-const StudentCard = ({fullName, grade, average, onRemove}: StudentCard) => {
+const StudentCard = ({fullName, grade, average, onRemove}: StudentCardProps) => {
     //a state that switches between display or hide depending on the boolean (true or false)
-    const[display, setDisplay] = useState(false);
+    const [showDetails, setShowDetails] = useState(false);
 
     //toggles the boolean
     const handleDisplay = () => {
-        setDisplay(!display);
+        setShowDetails((currentShowDetails) => !currentShowDetails);
     }
     
     return (
@@ -36,13 +35,13 @@ const StudentCard = ({fullName, grade, average, onRemove}: StudentCard) => {
                     <p>{grade}</p>
                 </div>
                 {/*If show details is true then display average and honour roll badge */}
-                {display && (
+                {showDetails && (
                     <>
                     <div className="flex justify-between">
                         <p>Average</p>
                         <p>{average}</p>
                     </div>
-                    {average >= 80 && (
+                    {average > 80 && (
                         <div className="bg-[#9bda9b] rounded p-2 text-center">Honour Roll</div>
                     )}
                     </>
@@ -54,7 +53,7 @@ const StudentCard = ({fullName, grade, average, onRemove}: StudentCard) => {
                         onClick={handleDisplay}
                         className="flex-1 h-10 rounded-lg px-4 py-1 font-semibold bg-[#E9803E] hover:bg-[#D96F2D]"
                     >
-                        {display ? "Hide details" : "Show details"}
+                        {showDetails ? "Hide details" : "Show details"}
                     </button>
 
                     <button

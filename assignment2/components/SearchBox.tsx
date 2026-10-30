@@ -1,12 +1,11 @@
-"use client";
-
 /*
-SearchBox.tsx -  Oct 29, 2026 - Bao Nguyen
-SearchBox renders the student search control. It receives the current search text and a callback from StudentPortal.
-The controlled input reports each change to its parent, where matching students are derived from the student list.
-It can match a student's name or grade, and the clear button restores the complete list.
-
+SearchBox.tsx - Oct 29, 2026 - Bao Nguyen
+SearchBox receives the current search text and an update callback from StudentPortal.
+It renders a controlled search input and sends each change back to the parent.
+StudentPortal uses the text to match student names and grades without changing the source list.
+When a query is present, the clear control reports an empty query to restore all results.
 */
+"use client";
 
 // Search text and update callback supplied by the parent.
 interface SearchBoxProps {

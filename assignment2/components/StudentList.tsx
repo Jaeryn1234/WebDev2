@@ -1,50 +1,44 @@
-import StudentCard from "./StudentCard";
-import {Student} from "@/types/student";
-
 /*
 Jaeryn Franco - StudentList.tsx - Oct 29, 2026
-Student List manages the Student Card. It loops through studentList and creates one card for each student.
-Its inputs are the studentList and onRemove props which will be processed by: if the list is empty, 
-then it will return a message, and if not empty, map through the studentList and make card for each one. The output is 
-a card with student infomation and the ability to interact with the cards.
+StudentList receives the visible students, an empty-state message, and a removal callback as props.
+It checks whether there are students to render and shows the supplied message when there are none.
+For a non-empty list, it maps each student to a StudentCard keyed by the student's unique ID.
+It renders the student section and delegates individual card interactions to StudentCard.
 */
-type StudentProps = {
+import StudentCard from "./StudentCard";
+import type { Student } from "@/types/student";
+
+interface StudentListProps {
     studentList: Student[];
     emptyMessage: string;
     onRemove: (id: number) => void;
 }
 
-//Manages student card
-const StudentList = ({studentList, emptyMessage, onRemove}: StudentProps) => {
-    //var to hold true or false if studentList is empty
+const StudentList = ({studentList, emptyMessage, onRemove}: StudentListProps) => {
     const isEmpty = studentList.length === 0;
 
-    return(
+    return (
         <section id="students">
-        <h1 className="font-semibold text-lg mb-4 text-center text-[#334155] mt-5 pt-5 border-t border-t-[#334155]">Students</h1>
-        <div className = "grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
-        {/*if empty is true, will print a message stating that there are no students */}
-        {isEmpty &&
-            <p className ="text-slate-600 col-span-full text-center">{emptyMessage}</p>
-        }
-
-        {/*if empty is false, it will map through the studentList and make a student card for each student */}
-        {!isEmpty &&
-            studentList.map((s) => (
-                <StudentCard
-                    key={s.id}
-                    fullName = {s.firstName + " " + s.lastName}
-                    grade = {s.grade}
-                    average = {s.average}
-                    onRemove = {()=> onRemove(s.id)}
-                />
-            ))
-        }
-    
-
-        </div>
+            <h1 className="mt-5 mb-4 border-t border-t-[#334155] pt-5 text-center text-lg font-semibold text-[#334155]">
+                Students
+            </h1>
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {isEmpty ? (
+                    <p className="col-span-full text-center text-slate-600">{emptyMessage}</p>
+                ) : (
+                    studentList.map((student) => (
+                        <StudentCard
+                            key={student.id}
+                            fullName={`${student.firstName} ${student.lastName}`}
+                            grade={student.grade}
+                            average={student.average}
+                            onRemove={() => onRemove(student.id)}
+                        />
+                    ))
+                )}
+            </div>
         </section>
     );
-}
+};
+
 export default StudentList;

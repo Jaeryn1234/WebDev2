@@ -1,17 +1,17 @@
 /*
-Jaeryn Franco - Navbar.tsx - Oct 27, 2026
-This file makes a Navbar. It includes the name of the high school and 3 links. Each link will jump to a specific part of the page 
-based on the # and id. Reused throughout the whole webpage at the very top.
+Jaeryn Franco - Navbar.tsx - Oct 29, 2026
+Navbar uses a local list of section labels and matching page-fragment links.
+It maps the links into the responsive navigation layout and displays the school name.
+Each link targets a section ID on the page, allowing direct in-page navigation.
+It renders the shared header used by the root layout on every page.
 */
 
-//const nav: https://dev.to/ryaddev/creating-a-responsive-navbar-using-nextjs-and-tailwind-css-48kk
 const navData = [
     {hashtag: "#overview", text: "Overview"},
     {hashtag: "#students", text: "Students"},
     {hashtag: "#addStudent", text: "Add Students"},
 ];
 
-//map: https://www.geeksforgeeks.org/reactjs/how-to-use-map-to-create-lists-in-reactjs/
 const Navbar = () => {
     return (
         <header className="bg-[#3D7FAF] border-b border-slate-200">
@@ -38,6 +38,3 @@ const Navbar = () => {
     );
 };
 export default Navbar;
-//flex
-    //justify-center natural: horizontal
-    //items-center natural: vertical
