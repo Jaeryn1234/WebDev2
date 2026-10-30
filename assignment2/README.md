@@ -1,8 +1,12 @@
 
 GROUP MEMBERS: Bao Nguyen, Jaeryn Franco
+//Link to deployed website: https://web-dev2-blue.vercel.app/
 
-
-
+/*
+What each member made: 
+    Bao: StudentPortal, AddStudent, SearchBox, Test checklist
+    Jaeryn: Navbar, Footer, StudentCard, StatsPanel, StatsCard (Initially, the component was inside StatsPanel, but to make it clean and reusable, it was placed in it's own file), StudentList
+*/
 1	Open the app.	Every student from your data file shows, and the three numbers match your data.
 ![alt text](image-1.png) PASS
 
